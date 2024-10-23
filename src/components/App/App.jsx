@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
+import { Header } from "@/components";
 import "./App.css";
 
 const HomePage = lazy(() => import("@/pages/HomePage/HomePage"));
@@ -15,12 +16,7 @@ const App = () => {
   // TODO: ADD ToastContainer at the component end
   return (
     <>
-      <header>
-          <nav className="container">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/catalog">Catalog</NavLink>
-          </nav>
-      </header>
+      <Header />
       <main className="container">
         <Suspense fallback={null}>
           <Routes>
