@@ -36,6 +36,7 @@
   align-content: center;
   color: var(--color-main);
   font-weight: var(--font-weight-medium);
+  transition: color var(--transition-time) var(--transition-timing-function);
 }
 
 .nav-menu-item:hover {
