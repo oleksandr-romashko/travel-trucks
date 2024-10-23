@@ -85,6 +85,9 @@ button {
   cursor: pointer;
 }
 
+:has(a > svg) a {
+  line-height: 0;
+}
 svg {
   width: 1em;
   height: 1em;
