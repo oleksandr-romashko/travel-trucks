@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 
 import css from "./Button.module.css";
+import Loader from "../Loader/Loader";
 
 const Button = (
   {
@@ -10,6 +11,7 @@ const Button = (
     to,
     onClick,
     style = "primary",
+    isLoading,
     className,
     children
   }
@@ -21,7 +23,7 @@ const Button = (
           onClick={onClick}
           className={clsx(className, css[style], css["btn"], css["btn-text"])}
         >
-          {children}
+          {isLoading ? <Loader style={style} /> : children}
         </button>
       );
     case "link": return (
@@ -37,7 +39,7 @@ const Button = (
           type="submit"
           className={clsx(className, css[style], css["btn"], css["btn-text"])}
         >
-          {children}
+          {isLoading ? <Loader style={style} /> : children}
         </button>
       );
   };
@@ -67,6 +69,7 @@ Button.propTypes = {
       }
     },
   style: PropTypes.oneOf(["primary", "secondary"]),
+  isLoading: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.string.isRequired,
 }

@@ -63,6 +63,10 @@ html {
   background-color: var(--color-white);
 }
 
+main {
+  min-height: calc(100vh - 72px);
+}
+
 a:hover {
   text-underline-offset: 0.2rem;
 }
@@ -81,4 +85,10 @@ a:hover {
   margin-right: auto;
   padding-left: 64px;
   padding-right: 64px;
+}
+
+div.app-content-loader {
+  width: 10%;
+  height: 10%;
+  top: 40%;
 }

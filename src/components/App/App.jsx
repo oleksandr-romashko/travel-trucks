@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Header } from "@/components";
+import { Header, Loader } from "@/components";
 import "./App.css";
 
 const HomePage = lazy(() => import("@/pages/HomePage/HomePage"));
@@ -12,13 +12,12 @@ const Reviews = lazy(() => import("@/components/Reviews/Reviews"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage/NotFoundPage"));
 
 const App = () => {
-  // TODO: ADD FALLBACK LOADER TO Suspense, e.g. fallback={<Loader />
   // TODO: ADD ToastContainer at the component end
   return (
     <>
       <Header />
       <main>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader className="app-content-loader" />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/catalog" element={<CatalogPage />} />
