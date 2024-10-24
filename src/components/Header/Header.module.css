@@ -9,6 +9,12 @@
   position: relative;
   display: flex;
   justify-content: center;
+  padding-left: 200px;
+}
+@media screen and (min-width: 768px) {
+  .header-container {
+    padding-left: 64px;
+  }
 }
 
 .logo-link {
@@ -22,12 +28,22 @@
 }
 
 .logo {
-  width: 136px;
+  width: 112px;
+}
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 136px;
+  }
 }
 
 .nav-menu {
   display: flex;
-  column-gap: 32px;
+  column-gap: 16px;
+}
+@media screen and (min-width: 768px) {
+  .nav-menu {
+    column-gap: 32px;
+  }
 }
 
 .nav-menu-item {
