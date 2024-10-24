@@ -47,7 +47,7 @@
   --border-radius-avatar: 50%;
 
   /* TRANSITIONS */
-  --transition-time: 230ms;
+  --transition-time: 180ms;
   --transition-timing-function: ease-in-out;
 }
 
