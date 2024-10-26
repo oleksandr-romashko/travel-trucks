@@ -1,0 +1,15 @@
+.favorite-btn {
+  width: fit-content;
+  height: fit-content;
+  line-height: 0;
+  border: none;
+}
+
+.favorite-icon {
+  width: 1.625rem;
+  height: 1.5rem;
+}
+
+.active {
+  fill: var(--color-button);
+}
