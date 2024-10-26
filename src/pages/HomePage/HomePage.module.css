@@ -1,6 +1,7 @@
 .hero {
   height: calc(100vh - 72px);
   background-image: url("../../assets/images/hero-bg.webp");
+  background-color: var(--color-main);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
