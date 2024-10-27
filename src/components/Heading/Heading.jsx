@@ -15,24 +15,27 @@ const Heading = ({
   rating,
   reviewsNumber,
   location,
-  onToggleFavorite,
   className,
 }) => {
   const { pathname } = useLocation();
-  const isCatalog = pathname === "/catalog";
+
+  const isCatalogPage = pathname === "/catalog";
+
   return (
     <div 
-      className={
-        clsx(isCatalog && css["card"], css["heading-wrapper"], className)
+      className={clsx(
+          isCatalogPage && css["card-heading"],
+          css["heading-wrapper"],
+          className
+        )
       }
     >
       <div className={css["title-wrapper"]}>
         <h2 className={clsx(css.title, "truncate-text")}>{title}</h2>
-        {pathname === "/catalog" && (
-          <PriceFavorite
+        {isCatalogPage && (
+          <PriceWithFavoriteButton
             id={id}
             price={price}
-            onToggleFavorite={onToggleFavorite}
           />
         )}
       </div>
@@ -43,11 +46,9 @@ const Heading = ({
           reviewsNumber={reviewsNumber}
           location={location}
         />
-        {pathname !== "/catalog" && (
-          <PriceFavorite
-            id={id}
+        {!isCatalogPage && (
+          <PriceWithFavoriteButton
             price={price}
-            onToggleFavorite={onToggleFavorite}
           />
         )}
       </div>
@@ -81,25 +82,23 @@ const DetailsList = ({id, rating, reviewsNumber, location}) => {
   );
 };
 
-const PriceFavorite = ({ id, price, onToggleFavorite }) => {
-  const { pathname } = useLocation();
+const PriceWithFavoriteButton = ({ id, price }) => {
+  if (id == null && price == null) return null;
 
   return (
     <div className={css["price-wrapper"]}>
-      <span className={css.price}>{formatPrice(price)}</span>
-      {pathname === "/catalog" && (
-        <FavoriteButton
-          className={css["add-to-favorites-btn"]}
-          id={id}
-          onToggleFavorite={onToggleFavorite}
-        />
+      {price !== null && (
+        <span className={css["price-text"]}>{formatPrice(price)}</span>
+      )}
+      {id !== null && (
+        <FavoriteButton id={id} />
       )}
     </div>
   );
 };
 
 Heading.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
@@ -116,10 +115,9 @@ DetailsList.propTypes = {
   location: PropTypes.string.isRequired,
 }
 
-PriceFavorite.propTypes = {
+PriceWithFavoriteButton.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  price: PropTypes.number.isRequired,
-  onToggleFavorite: PropTypes.func,
+  price: PropTypes.number,
 };
 
 export default Heading;
