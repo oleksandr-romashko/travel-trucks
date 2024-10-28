@@ -28,7 +28,7 @@ const Thumbnail = ({ src, alt, className, onClick }) => {
       role={onClick ? "button" : undefined}
       tabIndex={onClick ? 0 : undefined}
     >
-      {isLoading && <Loader style="current" />}
+      {isLoading && <Loader style="current" className={css["image-loader"]} />}
       <img
         loading="lazy"
         className={clsx(

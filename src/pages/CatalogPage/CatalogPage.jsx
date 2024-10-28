@@ -1,37 +1,93 @@
+import { useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import clsx from "clsx";
+
+import { fetchCampers } from "@/store/campers/operations";
+import {
+  selectLoading,
+  selectError,
+  selectCampers,
+} from "@/store/campers/selectors";
+import { selectPagination } from "@/store/pagination/selectors";
+import { clearCampers, setAppendMode } from "@/store/campers/slice";
+import { setFilter } from "@/store/filter/slice";
+import { setPagination } from "@/store/pagination/slice";
+
+import Filter from "@/components/Filter/Filter";
+import { Btn, AppLoader, Card as CardItem } from "@/components/UI";
+import { ItemsList, VehicleCard, Button } from "@/components";
+
+
+import css from "./CatalogPage.module.css";
 
 const CatalogPage = () => {
-  // const [searchParams, setSearchParams] = useSearchParams();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const dispatch = useDispatch();
+  const campers = useSelector(selectCampers);
+  const pagination = useSelector(selectPagination);
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
-  // location
-  const location = searchParams.get("location");
-  
-  // equipment
-  const hasAc = searchParams.has("ac");
-  const hasAutoTransmission = searchParams.has("automatic");
-  const hasKitchen = searchParams.has("kitchen");
-  const hasTv = searchParams.has("tv");
-  const hasBathroom = searchParams.has("bathroom");
-  
-  // vehicle type
-  const vehicleType = searchParams.get("type");
-  
-  // Query example:
-  // ?location=Kyiv,%20Ukraine&ac&automatic&kitchen&tv&bathroom&type=van
+  const handleLoadMore = () => {
+    const { page } = pagination;
+    dispatch(setAppendMode(true));
+    dispatch(setPagination({ page: Number(page) + 1 }));
+  };
+
+  useEffect(() => {
+    const searchObj = Object.fromEntries(searchParams.entries());
+    dispatch(setFilter(searchObj));
+    dispatch(fetchCampers());
+  }, [pagination.page, dispatch, searchParams]);
+
+  const handleSubmit = (values) => {
+    dispatch(clearCampers());
+    dispatch(setAppendMode(false));
+    dispatch(setPagination({ page: 1, total: 0 }));
+    setSearchParams(values);
+  };
+
+  const showLoadMore = useMemo(
+    () => pagination.page < pagination.total,
+    [pagination]
+  );
+
   return (
-    <>
-      <div>CatalogPage</div>
-      <ul>
-        <li>Location: { location }</li>
-        <li>AC: { hasAc ? "true" : "false" }</li>
-        <li>Automatic Transmission: { hasAutoTransmission ? "true" : "false" }</li>
-        <li>Kitchen: { hasKitchen ? "true" : "false" }</li>
-        <li>TV: { hasTv ? "true" : "false" }</li>
-        <li>Bathroom: { hasBathroom ? "true" : "false" }</li>
-        <li>Vehicle Type: { vehicleType }</li>
-      </ul>
-    </>
+    <div className="page">
+      <div className={clsx("container", css.container)}>
+        <Filter onSubmit={handleSubmit} />
+        <div style={{ flexGrow: 1 }}>
+          {!!error && (
+            <CardItem
+              variant="error"
+              title="An error occurred"
+              text={error}
+              style={{ maxWidth: 420 }}
+            />
+          )}
+          {!campers.length && !!isLoading && <AppLoader />}
+          {campers.length > 0 && (
+            <ItemsList
+              of={VehicleCard}
+              items={campers}
+              className={css["cards-list"]}
+            />
+          )}
+          {showLoadMore && (
+            <Button 
+              type="button" 
+              style="secondary"
+              onClick={handleLoadMore}
+              isLoading={isLoading}
+              className={css["load-more-btn"]}
+            >
+              Load more
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 

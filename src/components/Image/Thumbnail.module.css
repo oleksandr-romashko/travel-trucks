@@ -8,3 +8,8 @@
 .zoom-in-pointer {
   cursor: zoom-in;
 }
+
+.image-loader {
+  max-width: 25%;
+  max-height: 25%;
+}

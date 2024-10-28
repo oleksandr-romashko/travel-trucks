@@ -1,0 +1,45 @@
+.catalog-section {
+  width: 100%;
+  display: flex;
+  row-gap: 64px;
+  margin-top: 48px;
+}
+
+.search-filter {
+  width: 100%;
+  max-width: 360px;
+}
+
+.filter-form {
+}
+
+.filters-wrapper {
+  margin-top: 40px;
+}
+
+.filter {
+  margin-top: 32px;
+}
+
+.search-submit-btn {
+  margin-top: 40px;
+}
+
+.catalog-list-wrapper {
+  flex-grow: 1;
+}
+
+.catalog-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+.catalog-list-item {
+}
+
+.load-more-btn {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -42,6 +42,12 @@
   outline: none;
 }
 
+.badges-list:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 .badges-list:focus {
   border: 2px solid var(--color-primary); /* Custom focus outline */
 }

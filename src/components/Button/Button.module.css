@@ -14,6 +14,10 @@ a.btn:hover {
   text-decoration: none;
 }
 
+.btn:focus-visible {
+  outline-width: 4px;
+}
+
 .btn-text {
   font-size: 1rem;
   font-weight: var(--font-weight-medium);
