@@ -29,10 +29,12 @@ const FavoriteButton = ({ id }) => {
       aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
       title={isFavorite ? "Remove from favorites" : "Add to favorites"}
     >
-      <Icon
-        className={clsx(isFavorite && css["is-favorite"], css["favorite-icon"])}
-        iconName="icon-heart"
-      />
+      {id && (
+        <Icon
+          className={clsx(isFavorite && css["is-favorite"], css["favorite-icon"])}
+          iconName="icon-heart"
+        />
+      )}
     </button>
   );
 };
