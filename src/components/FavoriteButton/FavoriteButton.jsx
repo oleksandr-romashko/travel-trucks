@@ -38,7 +38,7 @@ const FavoriteButton = ({ id }) => {
 };
 
 FavoriteButton.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export default React.memo(FavoriteButton);

@@ -48,7 +48,6 @@ const Heading = ({
         />
         {!isCatalogPage && (
           <PriceWithFavoriteButton
-            id={id}
             price={price}
           />
         )}
