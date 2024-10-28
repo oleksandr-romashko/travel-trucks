@@ -1,7 +1,6 @@
-import React from "react";
 import clsx from "clsx";
-import css from "./Modal.module.css";
 import { Icon } from "@/components";
+import css from "./Modal.module.css";
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;

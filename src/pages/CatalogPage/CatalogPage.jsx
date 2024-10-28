@@ -15,7 +15,7 @@ import { setFilter } from "@/store/filter/slice";
 import { setPagination } from "@/store/pagination/slice";
 
 import Filter from "@/components/Filter/Filter";
-import { Btn, AppLoader, Card as CardItem } from "@/components/UI";
+import { AppLoader, Card as CardItem } from "@/components/UI";
 import { ItemsList, VehicleCard, Button } from "@/components";
 
 
