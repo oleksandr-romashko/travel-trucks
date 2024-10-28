@@ -47,7 +47,7 @@ const Thumbnail = ({ src, alt, className, onClick }) => {
 
 Thumbnail.propTypes = {
   src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  alt: PropTypes.string,
   className: PropTypes.string,
   onClick: PropTypes.func,
 }

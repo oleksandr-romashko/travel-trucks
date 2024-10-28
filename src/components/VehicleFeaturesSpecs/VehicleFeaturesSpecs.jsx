@@ -49,32 +49,29 @@ const VehicleFeaturesSpecs = ({ vehicleData = {}, className }) => {
   );
 };
 
-VehicleFeaturesSpecs.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  rating: PropTypes.number.isRequired,
-  location: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
 
-  transmission: PropTypes.string.isRequired,
-  engine: PropTypes.string.isRequired,
-  AC: PropTypes.bool.isRequired,
-  bathroom: PropTypes.bool.isRequired,
-  kitchen: PropTypes.bool.isRequired,
-  TV: PropTypes.bool.isRequired,
-  radio: PropTypes.bool.isRequired,
-  refrigerator: PropTypes.bool.isRequired,
-  microwave: PropTypes.bool.isRequired,
-  gas: PropTypes.bool.isRequired,
-  water: PropTypes.bool.isRequired,
-  
-  form: PropTypes.string.isRequired,
-  length: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  tank: PropTypes.string.isRequired,
-  consumption: PropTypes.string.isRequired,
+VehicleFeaturesSpecs.propTypes = {
+  vehicleData: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    transmission: PropTypes.string,
+    engine: PropTypes.string,
+    AC: PropTypes.bool,
+    bathroom: PropTypes.bool,
+    kitchen: PropTypes.bool,
+    TV: PropTypes.bool,
+    radio: PropTypes.bool,
+    refrigerator: PropTypes.bool,
+    microwave: PropTypes.bool,
+    gas: PropTypes.bool,
+    water: PropTypes.bool,
+    form: PropTypes.string.isRequired,
+    length: PropTypes.string.isRequired,
+    width: PropTypes.string.isRequired,
+    height: PropTypes.string.isRequired,
+    tank: PropTypes.string.isRequired,
+    consumption: PropTypes.string.isRequired,
+  }).isRequired,
+  className: PropTypes.string,
 };
 
 export default VehicleFeaturesSpecs;
