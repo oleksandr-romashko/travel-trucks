@@ -48,6 +48,7 @@
   display: flex;
   align-items: center;
   column-gap: 0.24em;
+  line-height: var(--line-height-normal);
 }
 
 .details-icon {
@@ -63,6 +64,12 @@
 .rating-link {
   line-height: var(--line-height-normal);
   text-decoration-skip-ink: none;
+}
+
+.rating-link:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* PriceFavorite */

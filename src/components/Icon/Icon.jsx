@@ -21,7 +21,7 @@ const Icon = ({
 };
 
 Icon.propTypes = {
-  iconName: PropTypes.string.isRequired,
+  iconName: PropTypes.string,
   className: PropTypes.string,
   ariaLabel: PropTypes.string
 }

@@ -42,6 +42,7 @@
 
   /* BORDER RADIUSES */
   --border-radius-card-thumbnail: 10px;
+  --border-radius-scrollbar: 10px;
   --border-radius-input: 12px;
   --border-radius-card: 20px;
   --border-radius-badge: 100px;
