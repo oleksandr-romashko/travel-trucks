@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 
 import sprite from "@/assets/icons/sprite.svg";
-import css from "./Icon.module.css";
 
 const Icon = ({
   iconName = "icon-default",
@@ -11,7 +10,7 @@ const Icon = ({
 }) => {
   return (
     <svg
-      className={clsx(css.icon, className)}
+      className={clsx(className, "prevent-select")}
       aria-label={ariaLabel}
       aria-hidden={ariaLabel ? "false" : "true"}
     >

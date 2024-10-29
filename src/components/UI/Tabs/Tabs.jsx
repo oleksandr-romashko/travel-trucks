@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import css from "./Tabs.module.css";
 import clsx from "clsx";
 
-const Tabs = ({ tabs, active, onClick, tabIndex, onKeyDown, className }) => {
+const Tabs = ({ tabs, active, onClick, onKeyDown, className }) => {
   const [underlineCss, setUnderlineCss] = useState({ left: 0, width: 0 });
   const tabsRef = useRef([]);
 
@@ -13,7 +13,7 @@ const Tabs = ({ tabs, active, onClick, tabIndex, onKeyDown, className }) => {
       left: `${tabsRef[indx].offsetLeft}px`,
       width: `${width}px`,
     });
-  }, [active]);
+  }, [active, tabs]);
 
   const handleClick = (index) => {
     onClick(tabs[index]);
@@ -28,7 +28,7 @@ const Tabs = ({ tabs, active, onClick, tabIndex, onKeyDown, className }) => {
   };
 
   return (
-    <div className={clsx(css.container, className)}>
+    <div className={clsx(css.container, className, "prevent-select")}>
       {tabs.map((tab, index) => (
         <h3
           ref={(el) => (tabsRef[index] = el)}

@@ -21,7 +21,14 @@ const Button = (
         <button
           type="button"
           onClick={onClick}
-          className={clsx(className, css[style], css["btn"], css["btn-text"])}
+        className={
+          clsx(
+            className,
+            css[style],
+            css["btn"],
+            css["btn-text"],
+            "prevent-select"
+          )}
         >
           {isLoading ? <Loader style={style} /> : children}
         </button>

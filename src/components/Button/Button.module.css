@@ -24,7 +24,6 @@ a.btn:hover {
   line-height: var(--line-height-normal);
   letter-spacing: var(--font-letter-spacing-tight);
   text-align: center;
-  user-select: none;
 }
 
 .primary {

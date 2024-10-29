@@ -14,7 +14,6 @@
   color: var(--color-main);
   text-transform: capitalize;
   cursor: pointer;
-  user-select: none;
 }
 
 .item:focus-visible {

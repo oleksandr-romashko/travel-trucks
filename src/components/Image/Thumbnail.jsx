@@ -33,6 +33,7 @@ const Thumbnail = ({ src, alt, className, onClick }) => {
         loading="lazy"
         className={clsx(
           css["thumbnail-image"],
+          "prevent-select",
           !!onClick && css["zoom-in-pointer"]
         )}
         src={imgSrc}
