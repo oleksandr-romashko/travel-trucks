@@ -90,7 +90,7 @@ const PriceWithFavoriteButton = ({ id, price }) => {
       {price !== null && (
         <span className={css["price-text"]}>{formatPrice(price)}</span>
       )}
-      {id !== null && (
+      {id && (
         <FavoriteButton id={id} />
       )}
     </div>
