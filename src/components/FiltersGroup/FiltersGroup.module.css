@@ -1,25 +1,25 @@
-.wrapper {
+.filter-group-wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 }
 
 .title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.2;
-  color: var(--main);
+  color: var(--color-main);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--line-height-normal);
 }
 
-.itemsSet {
-  --indent: 12px;
-  --items: 3;
+.items-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: var(--indent);
+  column-gap: 12px;
+  row-gap: 8px;
 }
 
-.setItem {
-  flex-basis: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
+.item {
+  flex-basis: calc((100% - 24px) / 3);
 }

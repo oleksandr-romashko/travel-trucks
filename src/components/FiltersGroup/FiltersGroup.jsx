@@ -1,21 +1,29 @@
-import FilterItem from "@/components/FilterItem/FilterItem";
+import PropTypes from "prop-types";
+import { FilterItem, Separator } from "@/components";
 import css from "./FiltersGroup.module.css";
-import { Separator } from "@/components/UI";
 
 const FiltersGroup = ({ title = "", items }) => {
   return (
-    <div className={css.wrapper}>
+    <div className={css["filter-group-wrapper"]}>
       {title.length > 0 && <p className={css.title}>{title}</p>}
       <Separator />
-      <ul className={css.itemsSet}>
-        {items.map((item) => (
-          <li className={css.setItem} key={item.id}>
-            <FilterItem {...item} />
-          </li>
-        ))}
+      <ul className={css["items-list"]}>
+        {items.map((item) => {
+          return (
+            <li key={item.id} className={css["item"]}>
+              <FilterItem {...item} />
+            </li>
+          )
+        }
+      )}
       </ul>
     </div>
   );
 };
+
+FiltersGroup.propTypes = {
+  title: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
 
 export default FiltersGroup;
