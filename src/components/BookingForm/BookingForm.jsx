@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-import { Button } from "@/components";
-import { TextField, DatePickerField } from "@/components/UI";
+import { Button, TextField } from "@/components";
+import { DatePickerField } from "@/components/UI";
 import css from "./BookingForm.module.css";
 import clsx from "clsx";
 

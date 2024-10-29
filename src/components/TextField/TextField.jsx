@@ -1,7 +1,9 @@
-import css from "./TextField.module.css";
 import clsx from "clsx";
 import { Field, useFormikContext, useField } from "formik";
-import FieldWrapper from "../FieldWrapper/FieldWrapper";
+
+import { FieldWrapper } from "@/components/UI";
+
+import css from "./TextField.module.css";
 
 const TextField = ({
   name,

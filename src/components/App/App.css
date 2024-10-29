@@ -42,6 +42,8 @@
 
   /* BORDER RADIUSES */
   --border-radius-card-thumbnail: 10px;
+  --border-radius-filter-item-checkbox: 12px;
+  --border-radius-filter-item-radio-btn: 10px;
   --border-radius-booking-form: 10px;
   --border-radius-scrollbar: 10px;
   --border-radius-calendar: 12px;

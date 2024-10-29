@@ -13,3 +13,6 @@ export { default as Thumbnail } from "./Image/Thumbnail";
 export { default as ItemsList } from "./ItemsList/ItemsList";
 export { default as VehicleCard } from "./VehicleCard/VehicleCard";
 export { default as VehicleFeaturesSpecs } from "./VehicleFeaturesSpecs/VehicleFeaturesSpecs";
+export { default as Separator } from "./Separator/Separator";
+export { default as TextField } from "./TextField/TextField";
+export { default as Filter } from "./Filter/Filter";

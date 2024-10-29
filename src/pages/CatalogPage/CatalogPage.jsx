@@ -14,10 +14,8 @@ import { clearCampers, setAppendMode } from "@/store/campers/slice";
 import { setFilter } from "@/store/filter/slice";
 import { setPagination } from "@/store/pagination/slice";
 
-import Filter from "@/components/Filter/Filter";
+import { Filter, ItemsList, VehicleCard, Button } from "@/components";
 import { AppLoader, Card as CardItem } from "@/components/UI";
-import { ItemsList, VehicleCard, Button } from "@/components";
-
 
 import css from "./CatalogPage.module.css";
 

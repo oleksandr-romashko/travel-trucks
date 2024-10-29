@@ -1,60 +1,64 @@
 import { createSelector } from "@reduxjs/toolkit";
 
+export const selectVehicleTransmissionsList = [
+  {
+    id: "automatic",
+    value: {
+      queryName: "automatic",
+      label: "Automatic",
+      iconName: "icon-diagram",
+    },
+  },
+  {
+    id: "manual",
+    value: {
+      queryName: "manual",
+      label: "Manual",
+      iconName: "icon-diagram",
+    },
+  },
+];
+
+export const selectVehicleEnginesList = [
+  {
+    id: "diesel",
+    value: {
+      queryName: "diesel",
+      label: "Diesel",
+      iconName: "icon-fuel-pump",
+    },
+  },
+  {
+    id: "petrol",
+    value: {
+      queryName: "petrol",
+      label: "Petrol",
+      iconName: "icon-fuel-pump",
+    },
+  },
+  {
+    id: "hybrid",
+    value: {
+      queryName: "hybrid",
+      label: "Hybrid",
+      iconName: "icon-fuel-pump",
+    },
+  },
+];
+
 export const selectPossibleVehicleEquipmentList = [
   {
     id: "transmission",
-    value: [
-      {
-        id: "automatic",
-        value: {
-          filterValue: "automatic",
-          label: "Automatic",
-          iconName: "icon-diagram",
-        },
-      },
-      {
-        id: "manual",
-        value: {
-          filterValue: "manual",
-          label: "Manual",
-          iconName: "icon-diagram",
-        },
-      },
-    ],
+    value: selectVehicleTransmissionsList,
   },
   {
     id: "engine",
-    value: [
-      {
-        id: "diesel",
-        value: {
-          filterValue: "diesel",
-          label: "Diesel",
-          iconName: "icon-fuel-pump",
-        },
-      },
-      {
-        id: "petrol",
-        value: {
-          filterValue: "petrol",
-          label: "Petrol",
-          iconName: "icon-fuel-pump",
-        },
-      },
-      {
-        id: "hybrid",
-        value: {
-          filterValue: "hybrid",
-          label: "Hybrid",
-          iconName: "icon-fuel-pump",
-        },
-      },
-    ],
+    value: selectVehicleEnginesList,
   },
   {
     id: "AC",
     value: {
-      filterValue: "ac",
+      queryName: "ac",
       label: "AC",
       iconName: "icon-wind",
     },
@@ -62,7 +66,7 @@ export const selectPossibleVehicleEquipmentList = [
   {
     id: "bathroom",
     value: {
-      filterValue: "bathroom",
+      queryName: "bathroom",
       label: "Bathroom",
       iconName: "icon-shower",
     },
@@ -70,7 +74,7 @@ export const selectPossibleVehicleEquipmentList = [
   {
     id: "kitchen",
     value: {
-      filterValue: "kitchen",
+      queryName: "kitchen",
       label: "Kitchen",
       iconName: "icon-cup-hot",
     },
@@ -78,7 +82,7 @@ export const selectPossibleVehicleEquipmentList = [
   {
     id: "TV",
     value: {
-      filterValue: "tv",
+      queryName: "tv",
       label: "TV",
       iconName: "icon-tv",
     },
@@ -86,7 +90,7 @@ export const selectPossibleVehicleEquipmentList = [
   {
     id: "radio",
     value: {
-      filterValue: "radio",
+      queryName: "radio",
       label: "Radio",
       iconName: "icon-radio",
     },
@@ -94,7 +98,7 @@ export const selectPossibleVehicleEquipmentList = [
   {
     id: "refrigerator",
     value: {
-      filterValue: "fridge",
+      queryName: "fridge",
       label: "Refrigerator",
       iconName: "icon-fridge",
     },
@@ -102,7 +106,7 @@ export const selectPossibleVehicleEquipmentList = [
   {
     id: "microwave",
     value: {
-      filterValue: "microwave",
+      queryName: "microwave",
       label: "Microwave",
       iconName: "icon-microwave",
     },
@@ -110,7 +114,7 @@ export const selectPossibleVehicleEquipmentList = [
   {
     id: "gas",
     value: {
-      filterValue: "gas",
+      queryName: "gas",
       label: "Gas",
       iconName: "icon-gas-stove",
     },
@@ -118,175 +122,70 @@ export const selectPossibleVehicleEquipmentList = [
   {
     id: "water",
     value: {
+      queryName: "water",
       label: "Water",
       iconName: "icon-water-drop",
-      filterValue: "water",
     },
   },
 ];
 
 export const selectVehicleFormsList = [
   {
-    form: [
-      {
-        panelTruck: {
-          filterValue: "van",
-          label: "Van",
-          iconName: "icon-grid-1x2",
-        },
-      },
-      {
-        fullyIntegrated: {
-          filterValue: "integrated",
-          label: "Fully Integrated",
-          iconName: "icon-grid-2x2",
-        },
-      },
-      {
-        alcove: {
-          filterValue: "alcove",
-          label: "Alcove",
-          iconName: "icon-grid-3x3",
-        },
-      },
-    ],
+    id: "panelTruck",
+    value: {
+      queryName: "van",
+      label: "Van",
+      iconName: "icon-grid-1x2",
+    },
+  },
+  {
+    id: "fullyIntegrated",
+    value: {
+      queryName: "integrated",
+      label: "Fully Integrated",
+      iconName: "icon-grid-2x2",
+    },
+  },
+  {
+    id: "alcove",
+    value: {
+      queryName: "alcove",
+      label: "Alcove",
+      iconName: "icon-grid-3x3",
+    },
   },
 ];
 
 export const selectVehicleSpecsList = [
   {
     length: {
-      filterValue: "length",
+      queryName: "length",
       label: "Length",
     },
   },
   {
     width: {
-      filterValue: "width",
+      queryName: "width",
       label: "Width",
     },
   },
   {
     height: {
-      filterValue: "height",
+      queryName: "height",
       label: "Height",
     },
   },
   {
     tank: {
-      filterValue: "tank",
+      queryName: "tank",
       label: "Tank",
     },
   },
   {
     consumption: {
-      filterValue: "consumption",
+      queryName: "consumption",
       label: "Consumption",
     },
-  },
-];
-
-// export const selectVehicleEquipList = [
-//   {
-//     id: "input-transmission",
-//     name: "transmission",
-//     value: "automatic",
-//     label: "Automatic",
-//     iconName: "icon-diagram",
-//   },
-//   {
-//     id: "input-engine",
-//     name: "engine",
-//     value: "petrol",
-//     label: "Petrol",
-//     iconName: "icon-fuel-pump",
-//   },
-//   {
-//     id: "input-ac",
-//     name: "AC",
-//     value: false,
-//     label: "AC",
-//     iconName: "icon-wind",
-//   },
-//   {
-//     id: "input-bathroom",
-//     name: "bathroom",
-//     value: false,
-//     label: "Bathroom",
-//     iconName: "icon-shower",
-//   },
-//   {
-//     id: "input-kitchen",
-//     name: "kitchen",
-//     value: false,
-//     label: "Kitchen",
-//     iconName: "icon-cup-hot",
-//   },
-//   {
-//     id: "input-tv",
-//     name: "TV",
-//     value: false,
-//     label: "TV",
-//     iconName: "icon-tv",
-//   },
-//   {
-//     id: "input-radio",
-//     name: "radio",
-//     value: false,
-//     label: "Radio",
-//     iconName: "icon-radio",
-//   },
-//   {
-//     id: "input-refrigerator",
-//     name: "refrigerator",
-//     value: false,
-//     label: "Refrigerator",
-//     iconName: "icon-fridge",
-//   },
-//   {
-//     id: "input-microwave",
-//     name: "microwave",
-//     value: false,
-//     label: "Microwave",
-//     iconName: "icon-microwave",
-//   },
-//   {
-//     id: "input-gas",
-//     name: "gas",
-//     value: false,
-//     label: "Gas",
-//     iconName: "icon-gas-stove",
-//   },
-//   {
-//     id: "input-water",
-//     name: "water",
-//     value: false,
-//     label: "Water",
-//     iconName: "icon-water-drop",
-//   },
-// ];
-
-export const selectVehicleFormsListOld = [
-  {
-    id: "input-van",
-    name: "form",
-    value: "panelTruck",
-    label: "Van",
-    iconName: "icon-grid-1x2",
-  },
-  {
-    id: "input-fully_integrated",
-    name: "form",
-    value: "fullyIntegrated",
-    label: "Fully Integrated",
-    iconName: "icon-grid-2x2",
-  },
-  {
-    id: "input-alcove",
-    name: "form",
-    value: "alcove",
-    label: "Alcove",
-    iconName: "icon-grid-3x3",
   },
 ];
 

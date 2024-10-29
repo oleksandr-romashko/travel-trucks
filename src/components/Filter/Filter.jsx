@@ -1,38 +1,60 @@
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Form, Formik } from "formik";
-import { useMemo } from "react";
+
 import { selectFilters } from "@/store/filter/selectors";
 import {
   selectPossibleVehicleEquipmentList,
-  selectVehicleFormsListOld,
+  selectVehicleFormsList,
 } from "@/store/campers/selectors";
-import FiltersGroup from "@/components/FiltersGroup/FiltersGroup";
-import { Btn, TextField } from "@/components/UI";
 import { selectLoading } from "@/store/campers/selectors";
+
+import { TextField, Button } from "@/components";
+import FilterCategory from "./FiltersCategory/FilterCategory"
+
 import css from "./Filter.module.css";
-import Button from "../Button/Button";
 
 const Filter = ({ onSubmit }) => {
-  const filters = useSelector(selectFilters);
-  const equipFilters = selectPossibleVehicleEquipmentList;
-  const formFilters = selectVehicleFormsListOld;
   const isLoading = useSelector(selectLoading);
 
-  const formFiltersModifyed = useMemo(
-    () => formFilters?.map((field) => ({ ...field, single: true })),
-    [formFilters]
-  );
+  const filters = useSelector(selectFilters);
+  const equipmentFiltersArr = selectPossibleVehicleEquipmentList;
+  const formFiltersArr = selectVehicleFormsList;
 
   const handleSubmit = (values) => {
     const filteredValues = {};
     for (const key in values) {
-      if (!!values[key]) {
+      if (values[key]) {
         filteredValues[key] = values[key];
       }
     }
-
     onSubmit(filteredValues);
   };
+
+  const filterOptionsArr = useMemo(
+    () => equipmentFiltersArr?.reduce((acc, item) => {
+      if (Array.isArray(item.value)) {
+        return acc.concat(
+          item.value.map(el => {
+            el.value.group = item.id;
+            return el;
+          })
+        );
+        } else {
+          acc.push(item);
+          return acc;
+        }
+      }, []),
+    [equipmentFiltersArr]
+  );
+
+  const formOptionsArr = useMemo(
+    () => formFiltersArr?.map((item) => {
+      item.value.group = "form";
+      return { ...item, single: true };
+    }),
+    [formFiltersArr]
+  );
 
   return (
     <div className={css.wrapper}>
@@ -49,19 +71,19 @@ const Filter = ({ onSubmit }) => {
             label={"Location"}
             clearable={true}
             placeholder={"City"}
-            appendIcon={"icon-map"}
+            appendIcon={"icon-paper-map"}
           />
           <div className={css.filtersSet}>
             <p className={css.title}>Filters</p>
-            <FiltersGroup
+            <FilterCategory
               type="multiple"
               title={"Vehicle equipment"}
-              items={equipFilters}
+              items={filterOptionsArr}
             />
-            <FiltersGroup
+            <FilterCategory
               type="single"
               title={"Vehicle type"}
-              items={formFiltersModifyed}
+              items={formOptionsArr}
             />
           </div>
           <Button type="submit" isLoading={isLoading}>Search</Button>

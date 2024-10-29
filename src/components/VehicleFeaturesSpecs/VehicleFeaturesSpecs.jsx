@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 
 import { selectPossibleVehicleEquipmentList as possibleEquipmentList } from "@/store/campers/selectors";
 
-import { ItemsList, Badge } from "@/components";
-import { Separator } from "@/components/UI";
+import { ItemsList, Badge, Separator } from "@/components";
 
 import { filterAvailableEquipment } from "@/helpers";
 

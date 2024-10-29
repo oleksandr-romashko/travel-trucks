@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
-import { FilterItem, Separator } from "@/components";
-import css from "./FiltersGroup.module.css";
+
+import { Separator } from "@/components";
+import FilterItem from "../FilterItem/FilterItem"
+
+import css from "./FilterCategory.module.css";
 
 const FiltersGroup = ({ title = "", items }) => {
   return (
@@ -8,14 +11,11 @@ const FiltersGroup = ({ title = "", items }) => {
       {title.length > 0 && <p className={css.title}>{title}</p>}
       <Separator />
       <ul className={css["items-list"]}>
-        {items.map((item) => {
-          return (
-            <li key={item.id} className={css["item"]}>
-              <FilterItem {...item} />
-            </li>
-          )
-        }
-      )}
+        {items.map((item) => (
+          <li key={item.id} className={css["item"]}>
+            <FilterItem {...item} />
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -23,6 +23,7 @@ const FiltersGroup = ({ title = "", items }) => {
 
 FiltersGroup.propTypes = {
   title: PropTypes.string,
+  name: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
