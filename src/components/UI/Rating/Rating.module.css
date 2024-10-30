@@ -1,11 +1,13 @@
 .rating-scale {
   display: flex;
   column-gap: 4px;
+  flex-shrink: 0;
 }
 
 .rating-icon {
   width: 1rem;
   height: 1rem;
+  fill: var(--color-badges);
 }
 
 .is-rated {
