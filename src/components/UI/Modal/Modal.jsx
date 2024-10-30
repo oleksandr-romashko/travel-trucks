@@ -33,6 +33,10 @@ const Modal = ({ isOpen, onClose, children }) => {
     }
   }
 
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <div
       className={clsx(css["modal-overlay"], "js-close-btn", "prevent-select")}
