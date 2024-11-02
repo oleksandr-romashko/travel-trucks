@@ -66,8 +66,14 @@
 
 .feature-reviews-content {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 40px;
+}
+
+@media screen and (min-width: 1440px) {
+  .feature-reviews-content {
+    flex-wrap: nowrap;
+  }
 }
 
 .tab-content {
@@ -78,11 +84,21 @@
   background: var(--color-inputs);
 }
 
+@media screen and (min-width: 1440px) {
+  .booking-form {
+    max-width: 553px;
+  }
+}
+
 .booking-form {
-  min-height: 588px;
-  flex-shrink: 0;
-  min-width: calc((100% - 40px) / 2);
-  width: calc((100% - 2.5rem) / 2);
+  width: 100%;
+}
+
+@media screen and (min-width: 1440px) {
+  .booking-form {
+    flex-shrink: 0;
+    width: calc((100% - 2.5rem) / 2);
+  }
 }
 
 .reviews {

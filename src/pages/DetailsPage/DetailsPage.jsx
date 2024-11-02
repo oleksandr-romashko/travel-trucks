@@ -157,17 +157,29 @@ const CamperDetailsPage = () => {
                 />
               </div>
               <div className={css["feature-reviews-content"]}>
-                {activeTab === "features" && <VehicleFeaturesSpecs vehicleData={vehicle} className={css.features} />}
-                {activeTab === "reviews" && <Outlet context={vehicle.reviews} className={css["tab-content"]} />}
+                {activeTab === "features"
+                  &&  <VehicleFeaturesSpecs
+                        vehicleData={vehicle}
+                        className={clsx(css.features, css["tab-content"])}
+                      />
+                }
+                {activeTab === "reviews"
+                  &&  <Outlet
+                        context={vehicle.reviews}
+                        className={clsx(css["booking-form"], css["tab-content"])}
+                      />
+                }
                 <BookingForm className={css["booking-form"]} />
               </div>
             </div>
           </section>
         </>
       )}
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <img className={css.modalImg} src={activeImage} alt="" />
-      </Modal>
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+          <img className={css.modalImg} src={activeImage} alt="" />
+        </Modal>
+      )}
     </>
   );
 };
